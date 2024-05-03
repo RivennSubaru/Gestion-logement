@@ -1,0 +1,85 @@
+body{
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100vh !important;
+    background-color: rgb(255, 248, 245) !important;
+    background-size: cover !important;
+}
+
+header{
+    display: flex !important;
+    height: 60px !important;
+    background-color: rgb(0, 107, 139) !important;
+    justify-content: space-between !important;
+}
+/*alignement contenu*/
+.align {
+    display: flex !important;
+    height: 100% !important;
+}
+/* Nav barre*/
+div nav {
+    display: block !important;
+    background-color: rgb(230, 230, 230) !important;
+    border: 1px solid rgb(199, 199, 199) !important;
+}
+nav ul{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+div nav ul li{
+    display: block !important;
+    list-style: none !important;
+    align-content: center !important;
+    padding: 10px 20px 10px 15px !important;
+    border-bottom: 1px solid rgb(190, 190, 190) !important;
+
+}
+div nav ul li:hover{
+    background-color: white !important;
+    &::before {
+        position: absolute !important;
+        content: "" !important;
+        padding-right: 0 !important;
+        left: 0px !important;
+        width: 6px !important;
+        height: 29px !important;
+        background: #208dc0 !important;
+        transform: scaleY(1.9) !important;
+        align-items: center !important;
+    }
+
+}
+#active3 {
+    background-color: white !important;
+    &::before {
+        position: absolute !important;
+        content: "" !important;
+        padding-right: 0 !important;
+        left: 0px !important;
+        width: 6px !important;
+        height: 29px !important;
+        background: #208dc0 !important;
+        transform: scaleY(1.9) !important;
+        align-items: center !important;
+    }
+}
+
+div nav ul li a{
+    text-decoration: none !important;
+    font-size: 25px !important;
+    color: black !important;
+    font-family: sans-serif !important;
+
+}
+
+nav ul form {
+    padding: 10px !important;
+}
+
+#search-input {
+    padding: 7px 20px 7px 2px !important;
+    font-size: 20px !important;
+    border: 1px solid rgb(167, 167, 167) !important;
+}
