@@ -48,6 +48,33 @@
         .list-group .list-group-item i.fa-ruler-combined{
             margin-left: 15px;
         }
+
+        #active1 {
+            background-color: white !important;
+            &::before {
+                position: absolute !important;
+                content: "" !important;
+                padding-right: 0 !important;
+                left: 0px !important;
+                width: 6px !important;
+                height: 26px !important;
+                background: #208dc0 !important;
+                transform: scaleY(1.9) !important;
+                align-items: center !important;
+            }
+        }
+
+        .card-deck{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(276px, 1fr));
+            gap: 1rem;
+            margin-top: 48px;
+            background: #f6f6ff;
+            padding: 10px;
+            border-radius: 5px;
+            width: 83vw;
+            margin-left: 5px;
+        }
     </style>
     <body>
         <?php include("header.php"); ?>

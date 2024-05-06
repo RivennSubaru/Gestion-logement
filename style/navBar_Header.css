@@ -17,7 +17,7 @@ header{
     display: flex !important;
     height: 100% !important;
 }
-/* Nav barre*/
+/* Nav bar*/
 div nav {
     display: block !important;
     background-color: rgb(230, 230, 230) !important;
@@ -51,35 +51,26 @@ div nav ul li:hover{
     }
 
 }
-#active3 {
-    background-color: white !important;
-    &::before {
-        position: absolute !important;
-        content: "" !important;
-        padding-right: 0 !important;
-        left: 0px !important;
-        width: 6px !important;
-        height: 29px !important;
-        background: #208dc0 !important;
-        transform: scaleY(1.9) !important;
-        align-items: center !important;
-    }
-}
-
 div nav ul li a{
     text-decoration: none !important;
-    font-size: 25px !important;
+    font-size: 1.3vw !important;
     color: black !important;
     font-family: sans-serif !important;
-
 }
 
 nav ul form {
-    padding: 10px !important;
+    padding: 0px 10px !important;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 5px;
 }
 
 #search-input {
     padding: 7px 20px 7px 2px !important;
-    font-size: 20px !important;
+    font-size: 13px !important;
     border: 1px solid rgb(167, 167, 167) !important;
+    border: 0px !important;
+    outline: none;
 }
