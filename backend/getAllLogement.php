@@ -10,6 +10,24 @@
         $req = $connexion -> query("SELECT * FROM logement LEFT JOIN image_logement ON logement.Num_log = image_logement.Num_log LEFT JOIN cite ON logement.id_cite = cite.id_cite");
     }
 
+    function afficheTout($connexion){
+        $req = $connexion -> query("SELECT * FROM logement LEFT JOIN image_logement ON logement.Num_log = image_logement.Num_log LEFT JOIN cite ON logement.id_cite = cite.id_cite");
+
+        return $req;
+    }
+
+    function afficheDispo($connexion){
+        $req = $connexion -> query("SELECT * FROM logement LEFT JOIN image_logement ON logement.Num_log = image_logement.Num_log LEFT JOIN cite ON logement.id_cite = cite.id_cite WHERE is_dispo = 1");
+
+        return $req;
+    }
+
+    function afficheIndispo($connexion){
+        $req = $connexion -> query("SELECT * FROM logement LEFT JOIN image_logement ON logement.Num_log = image_logement.Num_log LEFT JOIN cite ON logement.id_cite = cite.id_cite WHERE is_dispo = 0");
+
+        return $req;
+    }
+
     function getNumbLog($connexion){
         $req = $connexion -> query("SELECT COUNT(*) AS nb FROM logement");
         $donnee = $req -> fetch();

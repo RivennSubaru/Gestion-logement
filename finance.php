@@ -1,6 +1,4 @@
-<?php
-    include ("./connexion/connexion.php");
-?>
+<?php include './connexion/connexion.php'; $page = 'finance'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -81,23 +79,11 @@
 <body>
     <?php include("header.php"); ?>
     <div class="align">
-        <?php 
-            include("nav.php");
-        ?>
-        <?php include './tri.php' ?>
 
-        <form method="GET" action="finance.php">
-            <label for="tri">Trier par:</label>
-            <div id="blocTri">
-                <select name="tri" id="tri">
-                    <option value="moisAnnee" <?php if (isset($_GET['tri']) && $_GET['tri'] == 'moisAnnee') echo 'selected'; ?>>Revenu par mois par année</option>
-                    <option value="annee" <?php if (isset($_GET['tri']) && $_GET['tri'] == 'annee') echo 'selected'; ?>>Revenu par Année</option>
-                    <option value="montantAsc" <?php if (isset($_GET['tri']) && $_GET['tri'] == 'montantAsc') echo 'selected'; ?>>Montant (croissant)</option>
-                    <option value="montantDesc" <?php if (isset($_GET['tri']) && $_GET['tri'] == 'montantDesc') echo 'selected'; ?>>Montant (décroissant)</option>
-                </select>
-                <button type="submit"><i class="fa-solid fa-filter"></i></button>
-            </div>
-        </form>
+        <?php include 'nav.php' ?>
+
+        <?php include 'tri_finance.php' ?>
+
     </div>
     
 </body>
