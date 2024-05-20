@@ -1,3 +1,7 @@
+<?php
+    include ("./connexion/connexion.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +19,7 @@
 
 </head>
 <style>
-    #active3 {
+    #active6 {
         background-color: white !important;
         &::before {
             position: absolute !important;
@@ -30,56 +34,70 @@
         }
     }
 
-    #active3 i{
+    #active6 i{
         color: #208dc0;
     }
 
     .table {
         margin: auto !important;
         margin-top: 2% !important;
+        margin-bottom: 75px !important;
         width: 75% !important;
+    }
+
+    .align div h2 {
+        padding-left: 20px;
+    }
+
+    .align div {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    select#tri {
+        border-radius: 10px;
+        padding: 7px 0px 7px 10px;
+        color: #5f5f5f;
+        cursor: pointer;
+    }
+
+    div#blocTri {
+        margin: 0;
+        display: flex;
+        gap: 5px;
+    }
+
+    #blocTri button {
+        border-radius: 5px;
+        color: #717171;
+        border: 1px solid grey;
+    }
+
+    form {
+        margin-top: 25px;
+        margin-right: 10px;
     }
 </style>
 <body>
     <?php include("header.php"); ?>
     <div class="align">
         <?php 
-        include("nav.php");
-
-        if (isset($_GET["new"])) {
-            echo $_GET["new"];
-        }
-
-        include ("./connexion/connexion.php");
-        
-        include ("./backend/getAllClient.php");
+            include("nav.php");
         ?>
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Prénoms</th>
-                    <th scope="col">metier</th>
-                    <th scope="col">email</th>
-                    <th scope="col">téléphone</th>
-                </tr>
-            </thead>
-            <tbody><?php
-                while($donnee = $req -> fetch()){?>
-                    <tr>
-                        <th scope="row"><?php echo $donnee["id_client"]; ?></td>
-                        <td><?php echo $donnee["Nom_cli"]; ?></td>
-                        <td><?php echo $donnee["prenom_cli"]; ?></td>
-                        <td><?php echo $donnee["metier"]; ?></td>
-                        <td><?php echo $donnee["email"]; ?></td>
-                        <td><?php echo $donnee["telephone"]; ?></td>
-                    </tr><?php
-                }?>
-            </tbody>
-        </table>
+        <?php include './tri.php' ?>
 
-        <?php $req -> closeCursor(); ?>
+        <form method="GET" action="finance.php">
+            <label for="tri">Trier par:</label>
+            <div id="blocTri">
+                <select name="tri" id="tri">
+                    <option value="moisAnnee" <?php if (isset($_GET['tri']) && $_GET['tri'] == 'moisAnnee') echo 'selected'; ?>>Revenu par mois par année</option>
+                    <option value="annee" <?php if (isset($_GET['tri']) && $_GET['tri'] == 'annee') echo 'selected'; ?>>Revenu par Année</option>
+                    <option value="montantAsc" <?php if (isset($_GET['tri']) && $_GET['tri'] == 'montantAsc') echo 'selected'; ?>>Montant (croissant)</option>
+                    <option value="montantDesc" <?php if (isset($_GET['tri']) && $_GET['tri'] == 'montantDesc') echo 'selected'; ?>>Montant (décroissant)</option>
+                </select>
+                <button type="submit"><i class="fa-solid fa-filter"></i></button>
+            </div>
+        </form>
     </div>
     
 </body>

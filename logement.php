@@ -64,9 +64,13 @@
             }
         }
 
+        #active1 i{
+            color: #208dc0;
+        }
+
         .card-deck{
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(276px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(315px, 1fr));
             gap: 1rem;
             margin-top: 48px;
             background: #f6f6ff;
@@ -84,6 +88,8 @@
 
                 <!-- RECUPERATION REQUETE SQL -->
             <?php
+                include ('./connexion/connexion.php');
+
                 include ('./backend/getAllLogement.php');
             ?>
 
@@ -129,7 +135,12 @@
                                 <!-- Liens vers le detail et formulaire de transaction -->
                                 <div class="card-footer">
                                     <a name="detail" id="detail" class="btn btn-outline-info" href="#?logement= <?php echo $donnee['Num_log'] ?>" role="button">Detail</a>
-                                    <a name="achat" id="achat" class="btn btn-primary" href="#?logement= <?php echo $donnee['Num_log'] ?>" role="button" style="background: #0066b4;border-color: #0066b4;">Procéder au payement</a>
+                                    <?php
+                                    if ($donnee['is_dispo']) {
+                                        ?>
+                                        <a name="achat" id="achat" class="btn btn-primary" href="./formulaire/form-transaction.php?logement= <?php echo $donnee['Num_log'] ?>&prix= <?php echo $donnee['prix_log'] ?>" role="button" style="background: #0066b4;border-color: #0066b4;">Procéder au payement</a>
+                                        <?php
+                                    }?>
                                 </div>
                             </div>
                         

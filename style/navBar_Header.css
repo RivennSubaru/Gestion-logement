@@ -1,7 +1,6 @@
 body{
     margin: 0 !important;
     padding: 0 !important;
-    height: 100vh !important;
     background-color: rgb(255, 248, 245) !important;
     background-size: cover !important;
 }
@@ -50,6 +49,10 @@ div nav ul li:hover{
         align-items: center !important;
     }
 
+}
+
+div nav ul li:hover i{
+    color: #208dc0;
 }
 div nav ul li a{
     text-decoration: none !important;
