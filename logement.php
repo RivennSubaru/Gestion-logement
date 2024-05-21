@@ -15,6 +15,10 @@
 
         <!-- style perso -->
         <link rel="stylesheet" href="./style/navBar_Header.css">
+
+        <!-- tri -->
+        <link rel="stylesheet" href="./style/tri.css">
+        
     </head>
 
     <style>

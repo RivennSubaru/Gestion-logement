@@ -5,11 +5,12 @@ body{
     background-size: cover !important;
 }
 
-header{
+header {
     display: flex !important;
     height: 60px !important;
     background-color: rgb(0, 107, 139) !important;
-    justify-content: space-between !important;
+    justify-content: flex-end;
+    align-items: center;
 }
 /*alignement contenu*/
 .align {

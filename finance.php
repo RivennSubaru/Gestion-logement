@@ -15,6 +15,9 @@
     <!-- style perso -->
     <link rel="stylesheet" href="./style/navBar_Header.css">
 
+    <!-- tri -->
+    <link rel="stylesheet" href="./style/tri.css">
+
 </head>
 <style>
     #active6 {
@@ -50,30 +53,6 @@
     .align div {
         width: 100%;
         margin-top: 25px;
-    }
-
-    select#tri {
-        border-radius: 10px;
-        padding: 7px 0px 7px 10px;
-        color: #5f5f5f;
-        cursor: pointer;
-    }
-
-    div#blocTri {
-        margin: 0;
-        display: flex;
-        gap: 5px;
-    }
-
-    #blocTri button {
-        border-radius: 5px;
-        color: #717171;
-        border: 1px solid grey;
-    }
-
-    form {
-        margin-top: 25px;
-        margin-right: 10px;
     }
 </style>
 <body>
