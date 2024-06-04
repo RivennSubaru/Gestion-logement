@@ -1,30 +1,23 @@
-<?php
-// Récupération des données (par exemple depuis une base de données)
-$data = [
-    "labels" => ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin"],
-    "datasets" => [[
-        "label" => "Ventes",
-        "backgroundColor" => "rgba(75,192,192,0.4)",
-        "borderColor" => "rgba(75,192,192,1)",
-        "data" => [65, 59, 80, 81, 56, 55]
-    ]]
-];
-
-// Conversion des données en JSON pour les passer à Chart.js
-$dataJson = json_encode($data);
-?>
+<?php include './connexion/connexion.php'; $page = 'finance'; ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Graphique des Ventes</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- fontawesome -->
     <link rel="stylesheet" href="./Fonts/css/all.min.css">
-    
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- style perso -->
     <link rel="stylesheet" href="./style/navBar_Header.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- tri -->
+    <link rel="stylesheet" href="./style/tri.css">
+
 </head>
 <style>
     #active6 {
@@ -46,6 +39,12 @@ $dataJson = json_encode($data);
         color: #208dc0;
     }
 
+    .table {
+        margin: auto !important;
+        margin-top: 2% !important;
+        margin-bottom: 75px !important;
+        width: 75% !important;
+    }
 
     .align div h2 {
         padding-left: 20px;
@@ -59,30 +58,17 @@ $dataJson = json_encode($data);
 <body>
     <?php include("header.php"); ?>
     <div class="align">
-    <?php include("nav.php") ?>
-    </div>
 
-    <div style="width: 50%; margin: auto;">
-        <canvas id="myChart"></canvas>
+        <?php include 'nav.php' ?>
+
+        <?php include 'tri_finance.php' ?>
+
     </div>
-    <script>
-        // Récupération des données PHP en JavaScript
-        var chartData = <?php echo $dataJson; ?>;
-        
-        // Configuration du graphique
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line', // Type de graphique (line, bar, pie, etc.)
-            data: chartData,
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
+    
 </body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./bootstrap/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="./bootstrap/js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="./bootstrap/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html>
