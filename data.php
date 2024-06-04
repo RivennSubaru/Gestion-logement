@@ -60,11 +60,12 @@ $dataJson = json_encode($data);
     <?php include("header.php"); ?>
     <div class="align">
     <?php include("nav.php") ?>
-    </div>
-
     <div style="width: 50%; margin: auto;">
         <canvas id="myChart"></canvas>
     </div>
+    </div>
+
+
     <script>
         // Récupération des données PHP en JavaScript
         var chartData = <?php echo $dataJson; ?>;
