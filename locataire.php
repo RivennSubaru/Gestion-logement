@@ -63,6 +63,7 @@
                     <th scope="col">metier</th>
                     <th scope="col">email</th>
                     <th scope="col">téléphone</th>
+                    <th scope="col">gèrer</th>
                 </tr>
             </thead>
             <tbody><?php
@@ -74,6 +75,10 @@
                         <td><?php echo $donnee["metier"]; ?></td>
                         <td><?php echo $donnee["email"]; ?></td>
                         <td><?php echo $donnee["telephone"]; ?></td>
+                        <td>
+                            <a name="modify" id="modify" class="btn btn-warning" href="./formulaire/form-locataire.php?client=<?php echo $donnee["id_client"]; ?>&option=modify" role="button">Modifier</a>
+                            <a name="delete" id="delete" class="btn btn-danger" href="./backend/client.controller.php?client=<?php echo $donnee["id_client"]; ?>" role="button">Supprimer</a>
+                        </td>
                     </tr><?php
                 }?>
             </tbody>

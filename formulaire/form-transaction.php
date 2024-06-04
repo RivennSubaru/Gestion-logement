@@ -72,7 +72,7 @@
                     /* Si le logement à acheter n'est pas spécifier */
                     ?>
 
-                    <p>no data...</p>
+                    <p>no data...(Vous devez spécifier le logement à acheter depuis la liste des logements)</p>
                     <?php
                 } else {
                     

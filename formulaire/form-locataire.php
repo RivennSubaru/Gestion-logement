@@ -59,15 +59,25 @@
       <div class="align">
         <?php include("./nav.php") ?>
 
-        <form class="locataire" action="../backend/setClient.php" method="post">
+        <!-- Condition si c'est une modification ou une première insertion -->
+        <?php 
+        if(isset($_GET['option'])) {
+          include("../backend/selectClientSpecified.php");
+
+          $donnees = $req -> fetch();
+        }
+        ?>
+
+        <form class="locataire" <?php if(!isset($_GET['option'])) echo 'action="../backend/setClient.php"'; else echo 'action="../backend/setClient.php?option=modify&id=' .$donnees["id_client"]. '"' ?> method="post">
           <div class="form-row">
             <div class="col-md-4 mb-3">
               <label for="nomCli">Nom</label>
-              <input type="text" name="nomCli" id="nomCli" class="form-control" placeholder="Le nom du nouveau locataire" aria-describedby="helpId" pattern="[A-Za-zÀ-ÿ]+" required>
+              <input type="text" name="nomCli" id="nomCli" class="form-control" placeholder="Le nom du nouveau locataire" aria-describedby="helpId" pattern="[A-Z a-zÀ-ÿ]+" required value="<?php if (isset($_GET['option'])) echo $donnees['Nom_cli']; else ""; ?>">
+                                                                                                                                                                                            <!-- le value c'est pour le cas de modifiction -->
             </div>
             <div class="col-md-8 mb-3">
               <label for="prenomCli">Prénom</label>
-              <input type="text" name="prenomCli" id="prenomCli" class="form-control" placeholder="Prénom du client" aria-describedby="helpId" pattern="[A-Za-zÀ-ÿ]+" required>
+              <input type="text" name="prenomCli" id="prenomCli" class="form-control" placeholder="Prénom du client" aria-describedby="helpId" pattern="[A-Z a-zÀ-ÿ]+" required value="<?php if (isset($_GET['option'])) echo $donnees['prenom_cli']; else ""; ?>">
             </div>
           </div>
           <div class="form-row">
@@ -77,23 +87,25 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
                   </div>
-                  <input type="email" class="form-control" name="mail" id="mail" aria-describedby="emailHelpId" placeholder="exemple@gmail.com">
+                  <input type="email" class="form-control" name="mail" id="mail" aria-describedby="emailHelpId" placeholder="exemple@gmail.com" value="<?php if (isset($_GET['option'])) echo $donnees['email']; else ""; ?>">
                 </div>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-8">
               <label for="metier">Métier</label>
-              <input type="text" name="metier" id="metier" class="form-control" aria-describedby="helpId" pattern="[A-Za-zÀ-ÿ]+" required>
+              <input type="text" name="metier" id="metier" class="form-control" aria-describedby="helpId" pattern="[A-Z a-zÀ-ÿ]+" required value="<?php if (isset($_GET['option'])) echo $donnees['metier']; else ""; ?>">
             </div>
             <div class="form-group col-md-4">
               <label for="tel">Téléphone</label>
-              <input type="text" name="tel" id="tel" class="form-control" placeholder="032/034/038/033" aria-describedby="helpId" pattern="^(03[2-48])[.\-_ ]?([0-9]{2})[.\-_ ]?([0-9]{3})[.\-_ ]?([0-9]{2})$" required>
+              <input type="text" name="tel" id="tel" class="form-control" placeholder="032/034/038/033" aria-describedby="helpId" pattern="^(03[2-48])[.\-_ ]?([0-9]{2})[.\-_ ]?([0-9]{3})[.\-_ ]?([0-9]{2})$" required value="<?php if (isset($_GET['option'])) echo $donnees['telephone']; else ""; ?>">
               <small id="helpId" class="text-muted" style= "display: none">Help text</small>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Enregistrer</button>
+          <button type="submit" class="btn btn-primary"><?php if (isset($_GET['option'])) echo "Modifier"; else echo "Enregistrer"; ?></button>
         </form>
+        
+
       </div>
     </body>
     <!-- Optional JavaScript -->
