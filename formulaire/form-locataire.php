@@ -63,11 +63,11 @@
           <div class="form-row">
             <div class="col-md-4 mb-3">
               <label for="nomCli">Nom</label>
-              <input type="text" name="nomCli" id="nomCli" class="form-control" placeholder="Le nom du nouveau locataire" aria-describedby="helpId">
+              <input type="text" name="nomCli" id="nomCli" class="form-control" placeholder="Le nom du nouveau locataire" aria-describedby="helpId" pattern="[A-Za-zÀ-ÿ]+" required>
             </div>
             <div class="col-md-8 mb-3">
               <label for="prenomCli">Prénom</label>
-              <input type="text" name="prenomCli" id="prenomCli" class="form-control" placeholder="Prénom du client" aria-describedby="helpId">
+              <input type="text" name="prenomCli" id="prenomCli" class="form-control" placeholder="Prénom du client" aria-describedby="helpId" pattern="[A-Za-zÀ-ÿ]+" required>
             </div>
           </div>
           <div class="form-row">
@@ -84,11 +84,11 @@
           <div class="form-row">
             <div class="form-group col-md-8">
               <label for="metier">Métier</label>
-              <input type="text" name="metier" id="metier" class="form-control" aria-describedby="helpId">
+              <input type="text" name="metier" id="metier" class="form-control" aria-describedby="helpId" pattern="[A-Za-zÀ-ÿ]+" required>
             </div>
             <div class="form-group col-md-4">
               <label for="tel">Téléphone</label>
-              <input type="text" name="tel" id="tel" class="form-control" placeholder="032/034/038/033" aria-describedby="helpId">
+              <input type="text" name="tel" id="tel" class="form-control" placeholder="032/034/038/033" aria-describedby="helpId" pattern="^(03[2-48])[.\-_ ]?([0-9]{2})[.\-_ ]?([0-9]{3})[.\-_ ]?([0-9]{2})$" required>
               <small id="helpId" class="text-muted" style= "display: none">Help text</small>
             </div>
           </div>
